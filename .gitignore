@@ -9,3 +9,9 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+# Some EMACS files will contain this as well
+\#*\#
+
+# VIM ignore entries
+.*.swp
