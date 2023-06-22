@@ -14,5 +14,5 @@ if [ "$3" != "" ] ; then
 	ENDPTARG="endpoint $3"
 fi
 
-echo wg set "$WGIF" peer "$PUBKEY" allowed-ips "$ALLOWED" $ENDPTARG
+wg set "$WGIF" peer "$PUBKEY" allowed-ips "$ALLOWED" $ENDPTARG
 echo "Peer addition done!"
