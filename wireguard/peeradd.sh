@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$3" = "" ] ; then
+if [ "$2" = "" ] ; then
 	echo "Usage: $0 <PubKey> <AllowedCIDR> <EndPoint>"
 	exit 1
 fi
@@ -8,7 +8,11 @@ fi
 WGIF="wg0"
 PUBKEY="$1"
 ALLOWED="$2"
-ENDPOINT="$3"
 
-wg set "$WGIF" peer "$PUBKEY" allowed-ips "$ALLOWED" endpoint "$ENDPOINT"
+ENDPTARG=""
+if [ "$3" != "" ] ; then
+	ENDPTARG="endpoint $3"
+fi
+
+echo wg set "$WGIF" peer "$PUBKEY" allowed-ips "$ALLOWED" $ENDPTARG
 echo "Peer addition done!"
